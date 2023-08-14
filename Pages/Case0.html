@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.js" integrity="sha256-tA8y0XqiwnpwmOIl3SGAcFl2RvxHjA8qp0+1uCGmRmg=" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/39cab4bf95.js" crossorigin="anonymous"></script>
+        <script src="../assets/script.js"></script>
+        <link rel="stylesheet" href="../assets/style2.css">
+        <title>Case 1</title>
+    </head>
+    <body>
+        Clique na seta esquerda para voltar
+        <div class="tableMain" id="Table">
+            
+        </div>
+        <script>
+            window.onload = ()=>{
+                let div = document.querySelector('#Table');
+                let id = 0;
+                div.innerHTML += `
+                    <h1 class="titleTb">${CaseItem[id][0]}</h1>
+                    <table class="table">
+                        <tr class="ul">
+                            <th>Pré-Condições</th>
+                            <td>${CaseItem[id][1]}</td>
+                        </tr>
+                        <tr class="ul">
+                            <th>Pós-Condições</th>
+                            <td>${CaseItem[id][2]}</td>
+                        </tr>
+                        <tr class="ul">
+                            <th>Detalhamento</th>
+                            <td>${CaseItem[id][3]}</td>
+                        </tr>
+                        <tr class="ul">
+                            <th>Massa de entrada e saída</th>
+                            <td>${CaseItem[id][4]}</td>
+                        </tr>
+                        <tr class="ul">
+                            <th>Critérios Especiais</th>
+                            <td>${CaseItem[id][5]}</td>
+                        </tr>
+                        <tr class="ul">
+                            <th>Ambiente</th>
+                            <td>${CaseItem[id][6]}</td>
+                        </tr>
+                        <tr class="ul">
+                            <th>Implementação</th>
+                            <td>${CaseItem[id][7]}</td>
+                        </tr>
+                        <tr class="ul">
+                            <th>Iteração</th>
+                            <td>${CaseItem[id][8]}</td>
+                        </tr>
+                    </table>
+                `;
+            };
+            
+            document.querySelector('body').addEventListener('keydown', (event)=>{
+                var KeyCode = event.keyCode || event.which;
+                let KeyIndex = 1+48;
+                if(KeyCode==37){
+                    red('../index.html');
+                }else if (KeyCode >= 49 && KeyCode <= 53 && KeyCode!=KeyIndex) {
+                    var pageNumber = KeyCode - 49;
+                    var url = "Case" + pageNumber + ".html";
+                    red(url);
+                }
+            });
+        </script>
+    </body>
+</html>
